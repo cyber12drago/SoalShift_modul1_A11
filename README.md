@@ -1,7 +1,7 @@
 # Soal Shift Modul 1
 #
 **Soal Nomor 2**
->>>>>>> 4e205f0765a862638088e852c24d468bca68eef5
+
 **Bagian a**
 
 1. Cari row yang memiliki tahun 2012 dari file lalu pipe
