@@ -117,6 +117,7 @@ done
 	echo "$passrandom" > $file$x.txt  
     fi
 	```
+
 - Dari Script bash diatas fungsi `passrandom=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 12 | head -n 1)` untuk membuat kode acak yg terdiri dari huruf kecil,huruf panjang dan angka sepanjang 12
 - Tetapi dari semua probabilitas kode acak diatas belum tentu memenuhi seperti kondisi diatas
 - maka dari itu hasil 'passrandom' kita cek satu-satu apakah mengandung huruf kecil,huruf besar dan angka.
