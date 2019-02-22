@@ -126,4 +126,4 @@ cat /var/log/syslog |
 awk '(/!sudo/ || /cron/ && /CRON/) && (NF<13){print}' >> /home/diondevara/modul1/soal_5.log
 ```
 4. Setting cron
-> 2-30/6 * * * * /bin/bash /home/diondevara/soal5.sh
+> 2-30/6 * * * * diondevara /home/diondevara/soal5.sh
