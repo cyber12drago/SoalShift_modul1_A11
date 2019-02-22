@@ -196,7 +196,7 @@ cat /var/log/syslog |
 ```
 2. Tidak mengandung string "sudo" tetapi mengandung string "cron" dan "CRON" karena tidak case sensitive lalu redirect output ke ke /home/<user>/modul1/soal_5.log
 ```
-awk '(!/sudo/ || /cron/ && /CRON/) && (NF<13){print}' >> /home/diondevara/modul1/soal_5.log
+awk '(/CRON/ || /cron/ && !/sudo/) && (NF<13){print}' >> /home/diondevara/modul1/soal_5.log
 ```
 3. Setting cron
 ```
