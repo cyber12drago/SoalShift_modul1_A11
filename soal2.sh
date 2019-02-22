@@ -1,3 +1,5 @@
+#!/bin/bash
+
 awk 'BEGIN{printf "Penjualan Negara\n" }'
 awk -F "\"*,\"*" '$7=="2012"{print} ' WA_Sales_Products_2012-14.csv | sort | awk -F, '{arr[$1]+=$10;}END{for (i in arr)print arr[i]"\t  "i;}' | sort -k1 -nr | head -1
 awk 'BEGIN{printf "\nPenjualan Product Line\n" }'
