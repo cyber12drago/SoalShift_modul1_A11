@@ -124,7 +124,6 @@ done
 - Apabila tidak mengandung salah satu dari kondisi, maka kode akan diacak lagi sampai memenuhi 3 kondisi tersebut
 - Jika berhasil maka kode diatas akan disimpan di password1.txt
 - Tetapi jika password1.txt sudah terisi maka akan create password2.txt dan begitu seterusnya
-- crontab yang digunakan adalah `* 1 * * *` karena akan digunakan setiap jam
 
 <h2>Soal nomor 4</h2>
 
@@ -156,6 +155,9 @@ cat /var/log/syslog | tr "${lower:0:26}" "${lower:${rotat}:26}" | tr "${upper:0:
 - `cat /var/log/syslog` digunakan untuk menjadi file yg akan diubah
 - `tr "${lower:0:26}" "${lower:${rotat}:26}" | tr "${upper:0:26}" "${upper:${rotat}:26}"` digunakan untuk melakukan shift letter yang berada di syslog
 - Buatlah file sh lagi untuk mendecrypt lagi
+- crontab yang digunakan adalah `* 1 * * *` karena akan digunakan setiap jam
+![alt text](C:\Users\asus-pc\Documents\Sisop\crontab.jpg)
+
 
 ``` bash
 #!/bin/bash
