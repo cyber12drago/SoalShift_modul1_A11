@@ -174,8 +174,13 @@ cat "$x" | tr "${lower:0:26}" "${lower:${rotat}:26}" | tr "${upper:0:26}" "${upp
 ```
 
 
-<h2>Soal nomor 5</h2>
-
+**Soal nomor 5**
+Membuat script bash untuk menyimpan syslog dengan kriteria:
+- Tidak mengandung string "sudo".
+- Pencarian string tidak bersifat case sensitive.
+- Jumlah field pada baris kurang dari 13.
+- Record dimasukkan dalam file logs pada direktori /home/[user]/modul1.
+- Menjalankan script setiap 6 menit dari menit ke 2 hingga 30.
 1. Read syslog lalu pipe
 ```
 cat /var/log/syslog |
@@ -185,4 +190,6 @@ cat /var/log/syslog |
 awk '(/!sudo/ || /cron/ && /CRON/) && (NF<13){print}' >> /home/diondevara/modul1/soal_5.log
 ```
 4. Setting cron
-> 2-30/6 * * * * diondevara /home/diondevara/soal5.sh
+```
+2-30/6 * * * * diondevara /home/diondevara/soal5.sh
+```
