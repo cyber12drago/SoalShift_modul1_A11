@@ -1,9 +1,11 @@
 # Soal Shift Modul 1
 #
 **Soal Nomor 2**
-
+Membuat laporan berdasarkan file berdasarkan file WA_Sales_Products_2012-14.csv dengan menentukan:
+- Negara dengan penjualan terbanyak di tahun 2012.
+- Tiga product line yang memberikan penjualan terbanyak pada poin soal a.
+- Tiga product yang memberikan penjualan terbanayak pada poin soal b.
 **Bagian a**
-
 1. Cari row yang memiliki tahun 2012 dari file lalu pipe
 ```
 awk -F "\"*,\"*" '$7=="2012"{print} ' WA_Sales_Products_2012-14.csv |
@@ -67,7 +69,6 @@ sort -k1 -nr |
 5. Ambil 3 yang paling besar 
 ```
 head -3
-```
 
 <h2>Soal nomor 3</h2>
 3. Buatlah sebuah script bash yang dapat menghasilkan password secara acak sebanyak 12 karakter yang terdapat huruf besar, huruf kecil, dan angka. Password acak tersebut disimpan pada file berekstensi .txt dengan ketentuan pemberian nama sebagai berikut : a.	Jika tidak ditemukan file password1.txt maka password acak tersebut disimpan pada file bernama password1.txt 
@@ -128,7 +129,7 @@ done
 
 <h2>Soal nomor 4</h2>
 
-4. Lakukan backup file syslog setiap jam dengan format nama file ìjam:menit tanggal-bulan-tahunî. Isi dari file backup terenkripsi dengan konversi huruf (string manipulation) yang disesuaikan dengan jam dilakukannya backup misalkan sebagai berikut: a.	Huruf b adalah alfabet kedua, sedangkan saat ini waktu menunjukkan pukul 12, sehingga huruf b diganti dengan huruf alfabet yang memiliki urutan ke 12+2 = 14. b.	Hasilnya huruf b menjadi huruf n karena huruf n adalah huruf ke empat belas, dan seterusnya. c.	setelah huruf z akan kembali ke huruf a d.	Backup file syslog setiap jam. e. dan buatkan juga bash script untuk dekripsinya.
+4. Lakukan backup file syslog setiap jam dengan format nama file ‚Äújam:menit tanggal-bulan-tahun‚Äù. Isi dari file backup terenkripsi dengan konversi huruf (string manipulation) yang disesuaikan dengan jam dilakukannya backup misalkan sebagai berikut: a.	Huruf b adalah alfabet kedua, sedangkan saat ini waktu menunjukkan pukul 12, sehingga huruf b diganti dengan huruf alfabet yang memiliki urutan ke 12+2 = 14. b.	Hasilnya huruf b menjadi huruf n karena huruf n adalah huruf ke empat belas, dan seterusnya. c.	setelah huruf z akan kembali ke huruf a d.	Backup file syslog setiap jam. e. dan buatkan juga bash script untuk dekripsinya.
 
 ```bash
 #!/bin/bash
@@ -169,8 +170,13 @@ cat "$x" | tr "${lower:0:26}" "${lower:${rotat}:26}" | tr "${upper:0:26}" "${upp
 ```
 
 
-<h2>Soal nomor 5</h2>
-
+**Soal nomor 5**
+Membuat script bash untuk menyimpan syslog dengan kriteria:
+- Tidak mengandung string "sudo".
+- Pencarian string tidak bersifat case sensitive.
+- Jumlah field pada baris kurang dari 13.
+- Record dimasukkan dalam file logs pada direktori /home/[user]/modul1.
+- Menjalankan script setiap 6 menit dari menit ke 2 hingga 30.
 1. Read syslog lalu pipe
 ```
 cat /var/log/syslog |
@@ -180,4 +186,6 @@ cat /var/log/syslog |
 awk '(/!sudo/ || /cron/ && /CRON/) && (NF<13){print}' >> /home/diondevara/modul1/soal_5.log
 ```
 4. Setting cron
-> 2-30/6 * * * * diondevara /home/diondevara/soal5.sh
+```
+ 2-30/6 * * * * diondevara /home/diondevara/soal5.sh
+```
