@@ -1,7 +1,10 @@
 # Soal Shift Modul 1
 #
 **Soal Nomor 2**
-
+Membuat laporan berdasarkan file berdasarkan file WA_Sales_Products_2012-14.csv dengan menentukan:
+- Negara dengan penjualan terbanyak di tahun 2012.
+- Tiga product line yang memberikan penjualan terbanyak pada poin soal a.
+- Tiga product yang memberikan penjualan terbanayak pada poin soal b.
 **Bagian a**
 
 1. Cari row yang memiliki tahun 2012 dari file lalu pipe
@@ -127,7 +130,7 @@ done
 
 <h2>Soal nomor 4</h2>
 
-4. Lakukan backup file syslog setiap jam dengan format nama file “jam:menit tanggal-bulan-tahun”. Isi dari file backup terenkripsi dengan konversi huruf (string manipulation) yang disesuaikan dengan jam dilakukannya backup misalkan sebagai berikut: a.	Huruf b adalah alfabet kedua, sedangkan saat ini waktu menunjukkan pukul 12, sehingga huruf b diganti dengan huruf alfabet yang memiliki urutan ke 12+2 = 14. b.	Hasilnya huruf b menjadi huruf n karena huruf n adalah huruf ke empat belas, dan seterusnya. c.	setelah huruf z akan kembali ke huruf a d.	Backup file syslog setiap jam. e. dan buatkan juga bash script untuk dekripsinya.
+4. Lakukan backup file syslog setiap jam dengan format nama file â€œjam:menit tanggal-bulan-tahunâ€. Isi dari file backup terenkripsi dengan konversi huruf (string manipulation) yang disesuaikan dengan jam dilakukannya backup misalkan sebagai berikut: a.	Huruf b adalah alfabet kedua, sedangkan saat ini waktu menunjukkan pukul 12, sehingga huruf b diganti dengan huruf alfabet yang memiliki urutan ke 12+2 = 14. b.	Hasilnya huruf b menjadi huruf n karena huruf n adalah huruf ke empat belas, dan seterusnya. c.	setelah huruf z akan kembali ke huruf a d.	Backup file syslog setiap jam. e. dan buatkan juga bash script untuk dekripsinya.
 
 ```bash
 #!/bin/bash
