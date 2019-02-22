@@ -124,9 +124,37 @@ done
 - Apabila tidak mengandung salah satu dari kondisi, maka kode akan diacak lagi sampai memenuhi 3 kondisi tersebut
 - Jika berhasil maka kode diatas akan disimpan di password1.txt
 - Tetapi jika password1.txt sudah terisi maka akan create password2.txt dan begitu seterusnya
+- crontab yang digunakan adalah `* 1 * * *` karena akan digunakan setiap jam
+
+<h2>Soal nomor 4</h2>
+
+4. Lakukan backup file syslog setiap jam dengan format nama file “jam:menit tanggal-bulan-tahun”. Isi dari file backup terenkripsi dengan konversi huruf (string manipulation) yang disesuaikan dengan jam dilakukannya backup misalkan sebagai berikut: a.	Huruf b adalah alfabet kedua, sedangkan saat ini waktu menunjukkan pukul 12, sehingga huruf b diganti dengan huruf alfabet yang memiliki urutan ke 12+2 = 14. b.	Hasilnya huruf b menjadi huruf n karena huruf n adalah huruf ke empat belas, dan seterusnya. c.	setelah huruf z akan kembali ke huruf a d.	Backup file syslog setiap jam. e. dan buatkan juga bash script untuk dekripsinya.
+
+```bash
+#!/bin/bash
+
+lower=abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+upper=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ
+rotat=`date '+%H'`
+jam=`date +%H`
+jam=$(($jam-0))
+menit=`date +%M`
+menit=$(($menit-0))
+tanggal=`date +%d`
+bulan=`date +%m`
+tahun=`date +%Y`
 
 
+file="$jam:$menit $tanggal-$bulan-$tahun"
 
+cat /var/log/syslog | tr "${lower:0:26}" "${lower:${rotat}:26}" | tr "${upper:0:26}" "${upper:${rotat}:26}" > "$file.txt"
+```
+
+- Variable lower dan upper berguna untuk menjadi tempat shift letternya
+- Untuk variable jam dan menit diubah ke integer untuk menghindari error token 01-09
+- Variable file digunakan sebagai nama tempat hasil shift letter
+- `cat /var/log/syslog` digunakan untuk menjadi file yg akan diubah
+- `tr "${lower:0:26}" "${lower:${rotat}:26}" | tr "${upper:0:26}" "${upper:${rotat}:26}"` digunakan untuk melakukan shift letter yang berada di syslog
 
 <h2>Soal nomor 5</h2>
 
