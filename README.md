@@ -155,6 +155,19 @@ cat /var/log/syslog | tr "${lower:0:26}" "${lower:${rotat}:26}" | tr "${upper:0:
 - Variable file digunakan sebagai nama tempat hasil shift letter
 - `cat /var/log/syslog` digunakan untuk menjadi file yg akan diubah
 - `tr "${lower:0:26}" "${lower:${rotat}:26}" | tr "${upper:0:26}" "${upper:${rotat}:26}"` digunakan untuk melakukan shift letter yang berada di syslog
+- Buatlah file sh lagi untuk mendecrypt lagi
+
+``` bash
+#!/bin/bash
+
+lower=zyxwvutsrqponmlkjihgfedcbazyxwvutsrqponmlkjihgfedcba
+upper=ZYXWVUTSRQPONMLKJIHGFEDCBAZYXWVUTSRQPONMLKJIHGFEDCBA
+rotat=`date '+%H'`
+
+read x
+cat "$x" | tr "${lower:0:26}" "${lower:${rotat}:26}" | tr "${upper:0:26}" "${upper:${rotat}:26}" > "$x-description.txt"
+```
+
 
 <h2>Soal nomor 5</h2>
 
