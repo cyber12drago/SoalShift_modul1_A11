@@ -1,9 +1,6 @@
 #!/bin/bash
 
-for foto in *.jpg
+for i in *.jpg
 do
-        base64 -d $foto | xxd -r > /home/gipen/Documents/Sisop2k19/File1/nature/jadi/$foto
+	base64 -d $i | xxd -r > /home/gipen/Documents/icang/jadi/$i
 done
-
-
-
