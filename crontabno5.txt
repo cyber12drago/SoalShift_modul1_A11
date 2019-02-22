@@ -1,0 +1,1 @@
+2-30/6 * * * * diondevara /home/diondevara/soal5.sh
