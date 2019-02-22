@@ -46,9 +46,9 @@ done
     else
 	echo "$passrandom" > $file$x.txt  
     fi
-	```
-<h2>Soal Nomor 2</h2>
-
+```
+#
+**Soal Nomor 2**
 **Bagian a**
 
 1. Cari row yang memiliki tahun 2012 dari file lalu pipe
