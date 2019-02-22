@@ -27,7 +27,7 @@ head -1
 1. Cari row yang memiliki tahun 2012 dan negara United States sesuai soal a lalu pipe
 ```
 awk -F "\"*,\"*" '($7=="2012") && ($1=="United States"){print}' WA_Sales_Products_2012-14.csv |
-
+```
 2. Lakukan Sorting lalu pipe
 ```
 sort |
