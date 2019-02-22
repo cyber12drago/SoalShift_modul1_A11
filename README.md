@@ -156,7 +156,7 @@ cat /var/log/syslog | tr "${lower:0:26}" "${lower:${rotat}:26}" | tr "${upper:0:
 - `tr "${lower:0:26}" "${lower:${rotat}:26}" | tr "${upper:0:26}" "${upper:${rotat}:26}"` digunakan untuk melakukan shift letter yang berada di syslog
 - Buatlah file sh lagi untuk mendecrypt lagi
 - crontab yang digunakan adalah `* 1 * * *` karena akan digunakan setiap jam
-![Image Description](\Documents\Sisop\crontab.jpg)
+![Image Description](C:\Users\asus-pc\Documents\Sisop\crontab.jpg)
 
 
 ``` bash
