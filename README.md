@@ -1,6 +1,14 @@
-# Soal Shift Modul 1
+﻿# Soal Shift Modul 1
 #
+
+**Soal Nomor 1**
+
+Hal pertama yang dilakukan adalah extract file nature.zip dengan command “unzip nature.zip”. Kemudian untuk setiap file .jpg yang ada, dilakukan decrypt dengan command base64 -d. Karena hasil decrypt merupakan suatu bilangan Hexadecimal, maka perlu diubah dengan command “xxd -r” (xxd sendiri merupakan kebalikan dari hexdump yang berfungsi untuk mengubah suatu konten file menjadi hexadecimal, octal, ASCII dan decimal. )
+
+Kemudian juga perlu menambahkan schedule baru pada crontab. Format nya yaitu “14 14 14 2 * bash /home/gipen/Documents/icang/nature/soal1.sh”. Hal ini menunjukkan bahwa akan di-bash soal1.sh pada tanggal 14 Februari jam 14.14. Selain itu ditambahkan juga schedule “0 0 * 2 fri bash /home/gipen/Documents/icang/nature/soal1.sh”. Ini menunjukkan bahwa selain pada tanggal 14 Februari, soal1.sh juga akan di-bash pada setiap hari Jumat pada bulan Februari.
+
 **Soal Nomor 2**
+
 Membuat laporan berdasarkan file berdasarkan file WA_Sales_Products_2012-14.csv dengan menentukan:
 - Negara dengan penjualan terbanyak di tahun 2012.
 - Tiga product line yang memberikan penjualan terbanyak pada poin soal a.
@@ -159,7 +167,7 @@ cat /var/log/syslog | tr "${lower:0:26}" "${lower:${rotat}:26}" | tr "${upper:0:
 - `tr "${lower:0:26}" "${lower:${rotat}:26}" | tr "${upper:0:26}" "${upper:${rotat}:26}"` digunakan untuk melakukan shift letter yang berada di syslog
 - Buatlah file sh lagi untuk mendecrypt lagi
 - crontab yang digunakan adalah `* 1 * * *` karena akan digunakan setiap jam
-![Image Description](crontab.jpg)
+![Image Description](https://github.com/cyber12drago/SoalShift_modul1_A11/blob/master/crontabsoal4.jpg)
 
 
 ``` bash
@@ -175,6 +183,7 @@ cat "$x" | tr "${lower:0:26}" "${lower:${rotat}:26}" | tr "${upper:0:26}" "${upp
 
 
 **Soal nomor 5**
+
 Membuat script bash untuk menyimpan syslog dengan kriteria:
 - Tidak mengandung string "sudo".
 - Pencarian string tidak bersifat case sensitive.
@@ -187,9 +196,9 @@ cat /var/log/syslog |
 ```
 2. Tidak mengandung string "sudo" tetapi mengandung string "cron" dan "CRON" karena tidak case sensitive lalu redirect output ke ke /home/<user>/modul1/soal_5.log
 ```
-awk '(/!sudo/ || /cron/ && /CRON/) && (NF<13){print}' >> /home/diondevara/modul1/soal_5.log
+awk '(/CRON/ || /cron/ && !/sudo/) && (NF<13){print}' >> /home/diondevara/modul1/soal_5.log
 ```
-4. Setting cron
+3. Setting cron
 ```
-2-30/6 * * * * diondevara /home/diondevara/soal5.sh
+2-30/6 * * * * bin/bash /home/diondevara/soal5.sh
 ```
